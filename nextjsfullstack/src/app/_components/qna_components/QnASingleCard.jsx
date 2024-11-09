@@ -24,7 +24,7 @@ const QnASingleCard = ({ qnaId, qnaTitle }) => {
 
         <CardFooter className='mt-2 w-full'>
 
-          <Link href={`view-particular-qna-details/${qnaId}`} className='w-full'>
+          <Link href={`/view-particular-qna-details/${qnaId}`} className='w-full'>
 
             <Button className='w-full py-7 bg-violet-800 text-lg'>View Details</Button>
 

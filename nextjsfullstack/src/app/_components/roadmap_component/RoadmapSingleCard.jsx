@@ -31,7 +31,7 @@ const RoadmapSingleCard = ({ roadmapData }) => {
 
         <CardFooter className='mt-2 w-full'>
 
-          <Link href={`view-particular-roadmap-details/${parsedRoadmapData?.id}`} className='w-full'>
+          <Link href={`/view-particular-roadmap-details/${parsedRoadmapData?.id}`} className='w-full'>
 
             <Button className='w-full py-7 bg-violet-800 text-lg'>View Details</Button>
 

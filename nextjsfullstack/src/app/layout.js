@@ -31,21 +31,23 @@ export default function RootLayout({ children }) {
     <AuthProvider>
 
       <html lang="en" suppressHydrationWarning>
-
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950`}>
+        
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 min-h-screen flex flex-col`}>
           
           <Navbar />
 
-          {children}
+          <main className="flex-grow">
+            {children}
+          </main>
 
           <Footer />
 
           <Toaster />
 
         </body>
-        
-      </html>
 
+      </html>
+      
     </AuthProvider>
   );
 }

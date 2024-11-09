@@ -48,6 +48,8 @@ const Navbar = () => {
 
   const [openProfileModal, setOpenProfileModal] = useState(false);
 
+  const [ authenticatedUserDetails, setAuthenticatedUserDetails ] = useState({});
+
   const [loading, setLoading] = useState(false);
 
 
@@ -70,7 +72,10 @@ const Navbar = () => {
             profilePicUrl: user?.picture,
           };
 
-          await storeUserData(userData);
+          const authUserDetails = await storeUserData(userData);
+
+          setAuthenticatedUserDetails(authUserDetails);
+          
 
         } catch (error) {
 
@@ -170,16 +175,29 @@ const Navbar = () => {
 
                   <DropdownMenuContent>
 
-                    <DropdownMenuLabel>{user?.given_name} {user?.family_name}</DropdownMenuLabel>
+                    <DropdownMenuLabel>
+                      {authenticatedUserDetails?.isAdmin ? 'Admin' : `${user?.given_name} ${user?.family_name}`}
+                    </DropdownMenuLabel>
 
                     <DropdownMenuSeparator />
 
-                    <DropdownMenuItem 
-                      className='cursor-pointer' 
-                      onClick={() => setOpenProfileModal(true)}
-                    >Profile</DropdownMenuItem>
+                    <DropdownMenuItem className='cursor-pointer' onClick={() => setOpenProfileModal(true)}>
+                      Profile
+                    </DropdownMenuItem>
 
-                    <DropdownMenuItem>
+                    {authenticatedUserDetails?.isAdmin && <DropdownMenuItem className='cursor-pointer'>
+
+                      <Link href='/admin-total-qna-total-yt-videos-total-roadmaps'>Content Count</Link>
+
+                    </DropdownMenuItem>}
+
+                    {authenticatedUserDetails?.isAdmin && <DropdownMenuItem className='cursor-pointer'>
+
+                      <Link href='/admin-users'>Users</Link>
+
+                    </DropdownMenuItem>}
+
+                    <DropdownMenuItem className='cursor-pointer'>
 
                       <LogoutLink>Logout</LogoutLink>
 
@@ -274,7 +292,7 @@ const Navbar = () => {
 
       <AlertDialog open={openProfileModal} onOpenChange={setOpenProfileModal}>
 
-        <AlertDialogContent className='bg-violet-950'>
+        <AlertDialogContent className='bg-violet-950 overflow-auto max-h-[90vh]'>
 
           <AlertDialogHeader>
 
@@ -297,6 +315,16 @@ const Navbar = () => {
                 <span className="text-violet-300">{user?.email}</span>
 
               </span>
+
+
+              {authenticatedUserDetails?.isBanned && <span className="flex flex-col gap-2 items-center justify-center">
+
+                <span>Ban Reason</span>
+
+                <span className="text-red-300">{authenticatedUserDetails?.banReason}</span>
+
+              </span>}
+
 
             </AlertDialogDescription>
 
