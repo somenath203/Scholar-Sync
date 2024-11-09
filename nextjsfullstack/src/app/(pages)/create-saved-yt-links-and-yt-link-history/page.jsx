@@ -1,23 +1,61 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator";
 import CreateComponent from "@/app/_components/all_purpose_component/CreateComponent";
 import YoutubeGuidesDrawerForm from "@/app/_components/youtube_guides_component/youtubeGuidesDrawerForm";
+import YoutubeVideoGuideCards from "@/app/_components/youtube_guides_component/YoutubeVideoGuideCards";
+import { fetchAllEssentialYtVideosByTheUser } from "@/server-actions/essentialYtVideosServerActions";
 
 
 const Page = () => {
 
-  const [openCreateYoutubeLearningDrawer, setOpenCreateYoutubeLearningDrawer] = useState(false);
+
+  const [ openCreateYoutubeLearningDrawer, setOpenCreateYoutubeLearningDrawer ] = useState(false);
+
+  const [ allVideosData, setAllVideosData ] = useState([]);
+
+  const [ loadingAllVideoData, setLoadingAllVideoData ] = useState(false);
+  
+
+  const getAllEssentialYtVideosOfTheCurrentlyLoggedInUser = async () => {
+
+    try {
+
+      setLoadingAllVideoData(true);
+
+      const allEssentialYtVideos = await fetchAllEssentialYtVideosByTheUser();
+
+      setAllVideosData(allEssentialYtVideos.reverse());
+      
+      
+    } catch (error) {
+      
+      console.log(error);
+
+      toast.error(error?.message, { 
+        duration: 8000,
+        style: {
+          background: '#333',
+          color: '#fff',
+        },
+      });
+      
+    } finally {
+
+      setLoadingAllVideoData(false);
+
+    }
+
+  }
+
+  useEffect(() => {
+
+    getAllEssentialYtVideosOfTheCurrentlyLoggedInUser();
+
+  }, []);
 
   return (
     <>
@@ -26,7 +64,7 @@ const Page = () => {
         <div className="w-11/12 mx-auto">
         
 
-          <p className="text-2xl text-white mb-4">Save Yt Guides</p>
+          <p className="text-xl lg:text-2xl text-white mb-4">Save Yt Guides</p>
 
 
           <CreateComponent 
@@ -38,35 +76,12 @@ const Page = () => {
 
           <Separator className="my-8" />
 
-          <p className="text-2xl text-white mb-4">Your YouTube Study Collection</p>
+          <p className="text-xl lg:text-2xl text-center lg:text-left text-white mb-4">Your YouTube Study Collection</p>
 
-          <div className="grid md:grid-cols-4 gap-5">
-
-            <Card className="p-6 hover:shadow-violet-900/50 hover:shadow-lg transition-all duration-300 bg-gray-800/70 border-gray-500">
-
-              <CardHeader>
-
-                <CardTitle>Card Title</CardTitle>
-
-                <CardDescription>Card Description</CardDescription>
-
-              </CardHeader>
-
-              <CardContent>
-
-                <p>Card Content</p>
-
-              </CardContent>
-
-              <CardFooter>
-
-                <p>Card Footer</p>
-
-              </CardFooter>
-
-            </Card>
-
-          </div>
+          <YoutubeVideoGuideCards 
+            allVideosData={allVideosData}
+            loadingAllVideoData={loadingAllVideoData}
+          />
 
         </div>
 
@@ -75,6 +90,7 @@ const Page = () => {
       <YoutubeGuidesDrawerForm 
         openCreateYoutubeLearningDrawer={openCreateYoutubeLearningDrawer} 
         setOpenCreateYoutubeLearningDrawer={setOpenCreateYoutubeLearningDrawer}
+        getAllEssentialYtVideosOfTheCurrentlyLoggedInUser={getAllEssentialYtVideosOfTheCurrentlyLoggedInUser}
       />
     
     </>

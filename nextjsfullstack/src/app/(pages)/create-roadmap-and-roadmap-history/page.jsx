@@ -1,23 +1,52 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator";
 import CreateComponent from "@/app/_components/all_purpose_component/CreateComponent";
 import RoadmapDrawerForm from "@/app/_components/roadmap_component/RoadmapDrawerForm";
+import { fetchAllRoadmapsByTheUser } from "@/server-actions/roadmapServerActions";
+import RoadmapCards from "@/app/_components/roadmap_component/RoadmapCards";
 
 
 const Page = () => {
 
   const [openCreateRoadmapDrawer, setOpenCreateRoadmapDrawer] = useState(false);
+
+  const [ allRoadmapData, setAllRoadmapData ] = useState([]);
+
+  const [ loadingRoadmapData, setLoadingRoadmapData ] = useState(false);
+
+
+  const getAllRoadmapOfTheCurrentlyLoggedInUser = async () => {
+
+    try {
+
+      setLoadingRoadmapData(true);
+
+      const allRoadmaps = await fetchAllRoadmapsByTheUser();
+
+      setAllRoadmapData(allRoadmaps.reverse());
+      
+      
+    } catch (error) {
+      
+      console.log(error);
+      
+    } finally {
+
+      setLoadingRoadmapData(false);
+
+    }
+
+  }
+
+  useEffect(() => {
+
+    getAllRoadmapOfTheCurrentlyLoggedInUser();
+
+  }, []);
+
 
   return (
     <>
@@ -25,7 +54,7 @@ const Page = () => {
 
         <div className="w-11/12 mx-auto">
 
-          <p className="text-2xl text-white mb-4">Create Roadmap</p>
+          <p className="text-xl lg:text-2xl text-white mb-4">Create Roadmap</p>
 
 
           <CreateComponent 
@@ -39,35 +68,12 @@ const Page = () => {
 
           <div>
 
-            <p className="text-2xl text-white mb-4">Your Roadmaps</p>
+            <p className="text-xl lg:text-2xl text-center lg:text-left text-white mb-4">Your Roadmaps</p>
 
-            <div className="grid md:grid-cols-4 gap-5">
-
-              <Card className="p-6 hover:shadow-violet-900/50 hover:shadow-lg transition-all duration-300 bg-gray-800/70 border-gray-500">
-
-                <CardHeader>
-
-                  <CardTitle>Card Title</CardTitle>
-
-                  <CardDescription>Card Description</CardDescription>
-
-                </CardHeader>
-
-                <CardContent>
-
-                  <p>Card Content</p>
-
-                </CardContent>
-
-                <CardFooter>
-
-                  <p>Card Footer</p>
-
-                </CardFooter>
-
-              </Card>
-
-            </div>
+            <RoadmapCards 
+              allRoadmapData={allRoadmapData} 
+              loadingAllRoadmapData={loadingRoadmapData}
+            />
 
           </div>
 
@@ -79,6 +85,7 @@ const Page = () => {
       <RoadmapDrawerForm 
         openCreateRoadmapDrawer={openCreateRoadmapDrawer} 
         setOpenCreateRoadmapDrawer={setOpenCreateRoadmapDrawer}
+        getAllRoadmapOfTheCurrentlyLoggedInUser={getAllRoadmapOfTheCurrentlyLoggedInUser}
       />
 
     </>

@@ -13,15 +13,15 @@ const HeroSection = () => {
 
 
   return (
-    <header className="container mx-auto px-4 mt-36">
+    <header className="container mx-auto px-4 mt-44 lg:mt-36">
 
       <div className="text-center space-y-6">
 
-        <h1 className="text-5xl font-bold text-white">
+        <h1 className="text-4xl lg:text-5xl font-bold text-white">
           Scholar <span className="text-violet-400">Sync</span>
         </h1>
 
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
           Your AI-Powered Learning Companion: Personalized Pathways, Topic-Based QnAs, and Organized Youtube Study Guides - for Students and Their Parents.
         </p>
 

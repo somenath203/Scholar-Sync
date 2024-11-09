@@ -21,20 +21,8 @@ export const storeUserData = async (data) => {
             profilePicUrl: data?.profilePicUrl,
           },
         });
-
-        return {
-            success: true,
-            message: 'your profile has been created successfully'
-        }
-
-      } else {
-
-        return {
-            success: true,
-            message: 'you are logged in successfully'
-        }
-
-      }
+        
+      } 
 
     } catch (error) {
 

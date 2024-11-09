@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const FeatuesSection = () => {
 
-
   const features = [
     {
       id: 1,
@@ -28,12 +27,11 @@ const FeatuesSection = () => {
       icon: <FaYoutube className="h-6 w-6 text-violet-400" />
     },
   ];
-  
 
   return (
     <section className="container mx-auto px-4 py-8 mt-6">
 
-      <h2 className="text-3xl font-bold text-center mb-12 text-white">
+      <h2 className="text-2xl lg:text-3xl font-bold text-center mb-12 text-white">
         Transform Your Learning Journey
       </h2>
 

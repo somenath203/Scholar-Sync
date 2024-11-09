@@ -37,3 +37,30 @@ export const storeNewYtVideoData = async (data) => {
 
 }
 
+
+export const fetchAllEssentialYtVideosByTheUser = async () => {
+
+    try {
+
+        const user = await getAuthUserDetails();
+
+
+        const allEssentialYtVideosCreatedByTheUser = await primsaClientConfig.essentialYoutubeLinks.findMany({
+            where: {
+                emailOfTheProfileWhoStoredTheYoutubeLink: user?.email
+            }
+        });
+        
+
+        return allEssentialYtVideosCreatedByTheUser;
+        
+    } catch (error) {
+        
+        return {
+            success: false,
+            message: error?.message || 'Something went wrong. Please try again after sometime'
+        }
+
+    }
+
+}

@@ -13,15 +13,15 @@ const CallToAction = () => {
 
 
   return (
-    <section className="bg-violet-900/20 py-16 mt-16 border-t border-b border-violet-900/30">
+    <section className="bg-violet-900/20 py-16 mt-6 lg:mt-16 border-t border-b border-violet-900/30">
 
     <div className="container mx-auto px-4 text-center">
 
-      <h2 className="text-3xl font-bold mb-6 text-white">
+      <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-white">
         Ready to Transform Your Academic Journey?
       </h2>
 
-      <p className="text-xl mb-8 text-gray-300">
+      <p className="text-lg lg:text-xl mb-8 text-gray-300">
         Join thousands of students who are already maximizing their potential with ScholarSync.
       </p>
 

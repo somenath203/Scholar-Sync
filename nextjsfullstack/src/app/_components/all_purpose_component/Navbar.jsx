@@ -36,6 +36,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { storeUserData } from "@/server-actions/userServerActions";
+import LoaderModal from "./LoaderModal";
 
 
 
@@ -46,6 +47,8 @@ const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const [openProfileModal, setOpenProfileModal] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
 
   const { user } = useKindeAuth();
@@ -59,49 +62,31 @@ const Navbar = () => {
 
         try {
 
+          setLoading(true);
+
           const userData = {
             fullName: `${user?.given_name} ${user?.family_name}`,
             email: user?.email,
             profilePicUrl: user?.picture,
           };
 
-          const response = await storeUserData(userData);
-
-          if (!response?.success) {
-
-            console.log(response?.message);
-
-            toast.error(response?.message, { 
-              duration: 5000,
-              style: {
-                background: '#333',
-                color: '#fff',
-              },
-            });
-
-          } else if (response?.success) {
-
-            toast.success(response?.message, { 
-              duration: 5000,
-              style: {
-                background: '#333',
-                color: '#fff',
-              },
-            });
-
-          }
+          await storeUserData(userData);
 
         } catch (error) {
 
           console.log(error);
 
-          toast.error(response?.message, { 
+          toast.error(error?.message, { 
             duration: 5000,
             style: {
               background: '#333',
               color: '#fff',
             },
           });
+
+        } finally {
+
+          setLoading(false);
 
         }
 
@@ -140,11 +125,11 @@ const Navbar = () => {
 
       <nav className="fixed top-0 w-full z-50 bg-gray-950/60 backdrop-blur-sm border-b border-gray-800">
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 py-6 lg:py-0">
 
-          <div className="flex items-center justify-between h-20 mx-16">
+          <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row items-center lg:justify-between h-20 mx-10 lg:mx-16">
 
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 lg:gap-3">
 
               {pathname !== '/' && <RxHamburgerMenu className="h-6 w-6 text-violet-200 cursor-pointer" onClick={() => setOpenDrawer(true)} />}
 
@@ -289,7 +274,7 @@ const Navbar = () => {
 
       <AlertDialog open={openProfileModal} onOpenChange={setOpenProfileModal}>
 
-        <AlertDialogContent className='bg-violet-900/30'>
+        <AlertDialogContent className='bg-violet-950'>
 
           <AlertDialogHeader>
 
@@ -297,21 +282,21 @@ const Navbar = () => {
 
             <AlertDialogDescription className='text-center flex flex-col items-center justify-center gap-5 text-lg font-bold'>
               
-              <div className="flex flex-col gap-2 items-center justify-center mt-3">
+              <span className="flex flex-col gap-2 items-center justify-center mt-3">
 
-                <p>Full Name</p>
+                <span>Full Name</span>
 
-                <p className="text-violet-300">{user?.given_name} {user?.family_name}</p>
+                <span className="text-violet-300">{user?.given_name} {user?.family_name}</span>
 
-              </div>
+              </span>
 
-              <div className="flex flex-col gap-2 items-center justify-center">
+              <span className="flex flex-col gap-2 items-center justify-center">
 
-                <p>Email Address</p>
+                <span>Email Address</span>
 
-                <p className="text-violet-300">{user?.email}</p>
+                <span className="text-violet-300">{user?.email}</span>
 
-              </div>
+              </span>
 
             </AlertDialogDescription>
 
@@ -326,6 +311,9 @@ const Navbar = () => {
         </AlertDialogContent>
 
       </AlertDialog>
+
+
+      <LoaderModal openLoaderModal={loading} setOpenLoaderModal={setLoading} loaderText='Loading your Account' />
 
     </>
   );

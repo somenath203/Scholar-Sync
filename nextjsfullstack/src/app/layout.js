@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <AuthProvider>
 
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
 
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950`}>
           
