@@ -1,5 +1,11 @@
 # Scholar Sync
 
+## Demo Video of the overall application
+
+![Screenshot (785)](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)
+
+https://scholarsync-som.vercel.app/
+
 ## Introduction
 
 Scholar Sync is a web app designed to help students with their studies by offering tools for personalized study plans, question-and-answer generation, and organization of YouTube study resources. Built with modern web technology, Scholar Sync makes it easy for students to organize, plan, and access essential academic materials in one place.
