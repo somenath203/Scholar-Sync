@@ -40,6 +40,14 @@ Scholar Sync is a web app designed to help students with their studies by offeri
 5. **Pagination**  
    The admin dashboard includes pagination in the roadmaps, essential YouTube links, and QnA sections, with 3 items displayed per page, making it easy to navigate and manage content effectively.
 
+## Deployment Links
+
+**Live Preview:** https://scholarsync-som.vercel.app/
+
+**Top 10 QnA Generator FastAPI:** https://som180-scholarsyncfastapigenerateqnabackend.hf.space
+
+**Personalized Roadmap Generator FastAPI:** https://som180-scholarsyncfastapigenerateroadmapbackend.hf.space
+
 ## Technologies Used
 
 - **Next.js**: Framework for building fast, server-rendered web applications.
