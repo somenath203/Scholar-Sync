@@ -8,7 +8,7 @@ import { BiLoaderCircle } from "react-icons/bi";
 
 import { Separator } from "@/components/ui/separator";
 import CreateComponent from "@/app/_components/all_purpose_component/CreateComponent";
-import YoutubeGuidesDrawerForm from "@/app/_components/youtube_guides_component/youtubeGuidesDrawerForm";
+import YoutubeGuidesDrawerForm from "@/app/_components/youtube_guides_component/YoutubeGuidesDrawerForm";
 import YoutubeVideoGuideCards from "@/app/_components/youtube_guides_component/YoutubeVideoGuideCards";
 import { fetchAllEssentialYtVideosByTheUser } from "@/server-actions/essentialYtVideosServerActions";
 import { fetchParticularUserByEmailId } from "@/server-actions/userServerActions";
