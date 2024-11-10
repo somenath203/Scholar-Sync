@@ -4,7 +4,7 @@
 
 ![Screenshot (785)](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)
 
-https://scholarsync-som.vercel.app/
+https://www.youtube.com/watch?v=Lz3sGpZlb2g
 
 ## Introduction
 
