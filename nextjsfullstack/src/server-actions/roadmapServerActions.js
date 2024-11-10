@@ -153,3 +153,32 @@ export const fetchParticularRoadmapById = async (roadmapId) => {
     }
 
 }
+
+
+export const deleteRoadmapById = async (id) => {
+    
+    try {
+
+      await primsaClientConfig.roadMap.delete({
+        where: {
+          id: id,
+        },
+      });
+  
+      return {
+        success: true,
+        message: "Roadmap data has been deleted successfully",
+      };
+
+    } catch (error) {
+
+      console.log(error);
+  
+      return {
+        success: false,
+        message: error?.message || "Something went wrong. Please try again later",
+      };
+
+    }
+
+};

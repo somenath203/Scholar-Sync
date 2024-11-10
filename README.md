@@ -12,10 +12,16 @@ Scholar Sync is a web app designed to help students with their studies by offeri
    Get personalized study plans based on your syllabus and learning style. This feature creates a structured path to help you stay on track, make steady progress, and reach your study goals.
 
 2. **Topic-Based QnA Generator**  
-   Easily create question-and-answer sets for any topic. Just enter the topic and a description, and Scholar Sync will provide 10 questions with answers tailored to fit your needs.
+   Easily create question-and-answer sets for any topic. Just enter the topic and a description, and Scholar Sync will provide 10 questions with answers customized to fit your needs.
 
 3. **YouTube Study Guides**  
    Save and organize useful YouTube videos for quick access. This feature lets you manage educational videos that help in your studies, so you have all your learning resources in one place.
+
+4. **Pagination**  
+   For ease of navigation, each section—roadmaps, essential YouTube links, and QnAs—is paginated, displaying 3 items per page. This keeps the interface clean and makes it easier for users to browse content step-by-step.
+
+5. **Content Deletion**  
+   Users can delete any specific roadmap, QnA, or YouTube resource they’ve created, giving them full control over their content.
 
 ### Admin Features
 
@@ -27,6 +33,12 @@ Scholar Sync is a web app designed to help students with their studies by offeri
 
 3. **Ban/Unban Users**  
    Admins can ban a user by providing a clear reason or unban them when necessary, allowing for effective management of platform usage.
+
+4. **Content Management**  
+   Admins can delete any roadmap, QnA, or YouTube resource created by any user if needed, providing additional control over platform content.
+
+5. **Pagination**  
+   The admin dashboard includes pagination in the roadmaps, essential YouTube links, and QnA sections, with 3 items displayed per page, making it easy to navigate and manage content effectively.
 
 ## Technologies Used
 

@@ -139,7 +139,7 @@ const Page = () => {
 
     </div> : <>
 
-      <div className="text-white mt-36">
+      <div className="text-white mt-44 lg:mt-36">
 
         <div className="w-11/12 mx-auto">
 
@@ -161,6 +161,7 @@ const Page = () => {
           <QnACards 
             allQnAData={allQnAData} 
             loadingAllQnAData={loadingQnAData}
+            getAllTopTenQnAOfTheCurrentlyLoggedInUser={getAllTopTenQnAOfTheCurrentlyLoggedInUser}
           />
 
         </div>

@@ -64,3 +64,33 @@ export const fetchAllEssentialYtVideosByTheUser = async () => {
     }
 
 }
+
+
+export const deleteYtVideoById = async (id) => {
+    
+    try {
+
+      await primsaClientConfig.essentialYoutubeLinks.delete({
+        where: {
+          id: id,
+        },
+      });
+  
+      return {
+        success: true,
+        message: "YouTube video data has been deleted successfully",
+      };
+
+    } catch (error) {
+
+      console.log(error);
+  
+      return {
+        success: false,
+        message: error?.message || "Something went wrong. Please try again later",
+      };
+
+    }
+
+};
+  

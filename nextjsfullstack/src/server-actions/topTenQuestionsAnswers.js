@@ -138,3 +138,32 @@ export const fetchParticularQnAById = async (qnaId) => {
     }
 
 }
+
+
+export const deleteTopTenQnAById = async (id) => {
+    
+    try {
+
+      await primsaClientConfig.topTenQuestionsAnswers.delete({
+        where: {
+          id: id,
+        },
+      });
+  
+      return {
+        success: true,
+        message: "Top 10 qna data has been deleted successfully",
+      };
+
+    } catch (error) {
+
+      console.log(error);
+  
+      return {
+        success: false,
+        message: error?.message || "Something went wrong. Please try again later",
+      };
+
+    }
+
+};

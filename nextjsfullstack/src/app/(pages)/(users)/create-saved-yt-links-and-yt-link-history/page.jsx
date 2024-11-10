@@ -136,7 +136,7 @@ const Page = () => {
       </div>
 
     </div> : <>
-      <div className="text-white mt-36">
+      <div className="text-white mt-44 lg:mt-36">
 
         <div className="w-11/12 mx-auto">
         
@@ -158,6 +158,7 @@ const Page = () => {
           <YoutubeVideoGuideCards 
             allVideosData={allVideosData}
             loadingAllVideoData={loadingAllVideoData}
+            getAllEssentialYtVideosOfTheCurrentlyLoggedInUser={getAllEssentialYtVideosOfTheCurrentlyLoggedInUser}
           />
 
         </div>

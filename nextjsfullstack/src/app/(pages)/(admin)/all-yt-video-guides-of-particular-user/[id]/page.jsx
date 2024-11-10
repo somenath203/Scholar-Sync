@@ -191,7 +191,7 @@ const Page = () => {
 
                             <div className="flex flex-col gap-8">
 
-                               <p className="text-xl font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s Essential Yt Video Guides</p>
+                               <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s Essential Yt Video Guides</p>
 
                                 <YoutubeVideoGuideCards 
                                     allVideosData={allYtVideoData} 

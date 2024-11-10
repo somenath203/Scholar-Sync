@@ -191,7 +191,7 @@ const Page = () => {
 
                             <div className="flex flex-col gap-8">
 
-                               <p className="text-2xl font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s QnAs</p>
+                               <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s QnAs</p>
 
                                 <QnACards 
                                     allQnAData={allQnAs} 
