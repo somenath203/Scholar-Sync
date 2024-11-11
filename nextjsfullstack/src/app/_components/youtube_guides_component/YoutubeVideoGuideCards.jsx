@@ -19,7 +19,7 @@ const YoutubeVideoGuideCards = ({ allVideosData, loadingAllVideoData, getAllEsse
   return (
     <>
      
-      <div className="w-full flex items-center justify-center lg:justify-start gap-3">
+      {allVideosData.length !== 0 && <div className="w-full flex items-center justify-center lg:justify-start gap-3">
 
         <Button 
           disabled={page === 1}
@@ -43,7 +43,7 @@ const YoutubeVideoGuideCards = ({ allVideosData, loadingAllVideoData, getAllEsse
 
         </Button>
 
-      </div>
+      </div>}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         

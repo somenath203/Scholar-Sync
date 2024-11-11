@@ -19,7 +19,7 @@ const RoadmapCards = ({ allRoadmapData, loadingAllRoadmapData, getAllRoadmapOfTh
   return (
     <>
      
-      <div className="w-full flex items-center justify-center lg:justify-start gap-3">
+      {allRoadmapData.length !== 0 && <div className="w-full flex items-center justify-center lg:justify-start gap-3">
 
         <Button 
           disabled={page === 1}
@@ -43,7 +43,7 @@ const RoadmapCards = ({ allRoadmapData, loadingAllRoadmapData, getAllRoadmapOfTh
 
         </Button>
       
-      </div>
+      </div>}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
