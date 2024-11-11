@@ -11,7 +11,7 @@ import CreateComponent from "@/app/_components/all_purpose_component/CreateCompo
 import QnADrawerForm from "@/app/_components/qna_components/QnADrawerForm";
 import { fetchAllTopTenQuestionsAnswersByTheUser } from "@/server-actions/topTenQuestionsAnswers";
 import { fetchParticularUserByEmailId } from "@/server-actions/userServerActions";
-import QnACards from "@/app/_components/qna_components/QnACards";
+import QnACards from "@/app/_components/qna_components/QnACards"; 
 
 
 const Page = () => {
