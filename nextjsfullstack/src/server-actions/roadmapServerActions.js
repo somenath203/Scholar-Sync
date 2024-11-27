@@ -13,6 +13,8 @@ export const createRoadMap = async (roadmapData) => {
         const user = await getAuthUserDetails();
 
         const generateStudentRoadmapPrompt = `
+            You are an expert JSON generator.
+            
             Based on the following details, create a personalized roadmap in JSON format that outlines a step-by-step study plan for the student. Each step in the roadmap should include:
             - A unique ID for the step.
             - A step number in the format "Step 1," "Step 2," etc.
@@ -55,7 +57,6 @@ export const createRoadMap = async (roadmapData) => {
 
             Respond with only the JSON object.
         `;
-
 
 
         const { data } = await axios.post(process.env.FASTAPI_GENERATE_ROADMAP_BACKEND_URL, {
