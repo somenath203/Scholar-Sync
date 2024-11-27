@@ -13,16 +13,17 @@ export const generateTopTenQuestionAnswer = async (qnadata) => {
         const user = await getAuthUserDetails();
 
         const topTenQuestionAnswerPrompt = `
-            Generate an array of 10 objects where each object represents a question and in-depth answer based on the following topic. Ensure the output is a valid and properly formatted JSON object, with indentation and newlines, without any additional text or formatting.
-        
+            You are an expert JSON generator. Generate an array of 10 objects where each object represents a question and an in-depth answer based on the following topic. Ensure the output is strictly a valid and properly formatted JSON object, without any additional text, commentary, or formatting.
+
             Topic: ${qnadata.topic}
-        
+
             The JSON should include:
             - 'id': A unique ID for the question-answer pair.
             - 'question': A question based on the given topic.
-            - 'answer': The in-depth answer to the corresponding question based on the given topic.
-        
-            Example JSON output:
+            - 'answer': An in-depth answer to the corresponding question based on the given topic.
+
+            The output must adhere to the following structure exactly, without deviations or extra information:
+
             {
                 "questionsAndAnswers": [
                     {
@@ -43,10 +44,10 @@ export const generateTopTenQuestionAnswer = async (qnadata) => {
                     }
                 ]
             }
-        
-            Respond with only the JSON object, ensuring proper formatting.
+
+            Respond with only the JSON object and ensure it is well-formed, valid, and properly indented.
         `;
-        
+
 
         const { data } = await axios.post(process.env.FASTAPI_TOP_TEN_QUESTION_ANSWER_BACKEND_URL, {
             textFromNextJSFrontend: topTenQuestionAnswerPrompt
