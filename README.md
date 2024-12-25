@@ -2,14 +2,14 @@
 
 ## 🎥 **Demo Video of the Overall Application**  
 
-![Screenshot (785)](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)  
+![Screenshot](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)  
 
 🔗 [Watch on YouTube](https://www.youtube.com/watch?v=Lz3sGpZlb2g)  
 
 ---
 
 ## ✨ **Introduction**  
-Scholar Sync is a web app designed to help students and their parents manage and enhance the study experience. By offering tools for personalized study plans, question-and-answer generation, and organized YouTube study resources, Scholar Sync empowers both students and parents to take control of academic planning. Built with modern web technology, Scholar Sync makes it easy to organize, plan, and access essential learning materials all in one place.  
+Scholar Sync is an innovative web application designed to simplify and enhance the academic experience for students and parents alike. With features like personalized AI-powered study roadmaps, automated question-answer generation, and organized YouTube study resources, Scholar Sync empowers users to plan, organize, and optimize their learning journey. Built using cutting-edge technologies, Scholar Sync ensures seamless interaction and effective resource management, all in one unified platform.  
 
 ---
 
@@ -18,36 +18,36 @@ Scholar Sync is a web app designed to help students and their parents manage and
 ### 👩‍🎓 **User Features**  
 
 1. **AI-Powered Roadmaps** 🗺️  
-   Get personalized study plans based on your syllabus and learning style. This feature creates a structured path to help you stay on track, make steady progress, and reach your study goals.  
+   Create tailored study plans based on your syllabus and learning style. Stay on track and achieve your study goals with structured guidance.  
 
 2. **Topic-Based QnA Generator** ❓💡  
-   Easily create question-and-answer sets for any topic. Just enter the topic and a description, and Scholar Sync will provide 10 questions with answers customized to fit your needs.  
+   Generate 10 customized questions and answers for any topic with ease. Just input a topic and description, and let Scholar Sync do the rest.  
 
 3. **YouTube Study Guides** 🎥📖  
-   Save and organize useful YouTube videos for quick access. This feature lets you manage educational videos that help in your studies, so you have all your learning resources in one place.  
+   Save, organize, and access useful YouTube videos for efficient study sessions. Keep all your educational video resources in one convenient place.  
 
 4. **Pagination** 📄➡️  
-   For ease of navigation, each section—roadmaps, essential YouTube links, and QnAs—is paginated, displaying 3 items per page. This keeps the interface clean and makes it easier for users to browse content step-by-step.  
+   Enjoy a clean, organized interface with paginated sections (3 items per page) for roadmaps, YouTube links, and QnAs, ensuring smooth navigation.  
 
 5. **Content Deletion** ❌🗂️  
-   Users can delete any specific roadmap, QnA, or YouTube resource they’ve created, giving them full control over their content.  
+   Manage your data effectively by deleting specific roadmaps, QnAs, or YouTube resources when they are no longer needed.  
 
 ### 👨‍💻 **Admin Features**  
 
 1. **Admin Dashboard** 📊  
-   Admins can view the total count of roadmaps, YouTube resources, and QnA sets created, along with the total number of users on the platform.  
+   Access insights like the total count of roadmaps, QnA sets, YouTube resources, and users on the platform.  
 
 2. **User Management** 🛠️👥  
-   Admins can see basic information about each user, including the user’s ID, full name, email, and the roadmaps, QnAs, and YouTube resources they have created. Admins can also see if a user is banned from the platform.  
+   View detailed user information, including user IDs, names, emails, and their created content. Monitor banned users easily.  
 
 3. **Ban/Unban Users** 🚫✔️  
-   Admins can ban a user by providing a clear reason or unban them when necessary, allowing for effective management of platform usage.  
+   Enforce platform rules by banning users with a provided reason or unbanning them as necessary.  
 
 4. **Content Management** ✂️📑  
-   Admins can delete any roadmap, QnA, or YouTube resource created by any user if needed, providing additional control over platform content.  
+   Ensure platform quality by deleting any roadmap, QnA, or YouTube resource created by users, as required.  
 
 5. **Pagination** 📄➡️  
-   The admin dashboard includes pagination in the roadmaps, essential YouTube links, and QnA sections, with 3 items displayed per page, making it easy to navigate and manage content effectively.  
+   Navigate efficiently through admin content with paginated sections (3 items per page) for roadmaps, YouTube links, and QnAs.  
 
 ---
 
@@ -59,20 +59,20 @@ Scholar Sync is a web app designed to help students and their parents manage and
 
 ## 🛠️ **Technologies Used**  
 
-- **Next.js**: Framework for building fast, server-rendered web applications.  
-- **ShadCN UI**: UI component library for creating clean and responsive interfaces.  
-- **Tailwind CSS**: CSS framework for styling with responsive design.  
-- **React Hook Form**: Library for efficient form management and validation.  
-- **Zod**: Used for validating data inputs throughout the app.  
-- **React Hot Toast**: Tool for creating friendly, customizable notifications.  
-- **Prisma**: ORM used for database interaction with Neon PostgreSQL.  
-- **Neon PostgreSQL**: Cloud-hosted database for reliable data storage.  
-- **Kinde Authentication**: Provides secure user login and authentication.  
-- **GROQ API**: For efficient data querying and management.  
-- **Google GEMMA2-9B-IT Model**: AI model accessed through GROQ API, powering personalized study features.  
+- **Next.js**: Framework for fast, server-rendered web applications.  
+- **ShadCN UI**: Responsive UI component library for elegant interfaces.  
+- **Tailwind CSS**: Utility-first CSS framework for styling with ease.  
+- **React Hook Form**: Efficient library for form handling and validation.  
+- **Zod**: Ensures robust data validation across the app.  
+- **React Hot Toast**: Delivers user-friendly and customizable notifications.  
+- **Prisma**: ORM for seamless database interaction with Neon PostgreSQL.  
+- **Neon PostgreSQL**: Reliable, cloud-hosted database for secure data storage.  
+- **Kinde Authentication**: Provides secure login and user authentication.  
+- **GROQ API**: Enables fast, efficient data querying and management.  
+- **Google GEMMA2-9B-IT Model**: AI model powering study planning and QnA generation.  
+- **LangChain**: Streamlines AI integrations for building smarter, context-aware features.  
 
 ---
 
 ## ⚠️ **Disclaimer**  
-The creator of this application is not responsible for any incorrect content generated by the GROQ API or Google’s GEMMA2-9B-IT model, as these operate beyond the creator's control.  
-
+The creator of this application is not responsible for any incorrect content generated by the GROQ API, LangChain, or Google’s GEMMA2-9B-IT model, as these operate beyond the creator's control.  
