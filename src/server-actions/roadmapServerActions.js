@@ -13,9 +13,9 @@ export const createRoadMap = async (roadmapData) => {
         const user = await getAuthUserDetails();
 
         const generateStudentRoadmapPrompt = `
-            You are an expert JSON generator.
+            You are an expert JSON generator. Ensure the output is strictly a valid and properly formatted JSON object, without any additional text, commentary, or formatting.
             
-            Based on the following details, create a personalized roadmap in JSON format that outlines a step-by-step study plan for the student. Each step in the roadmap should include:
+            Based on the following details, create a personalized roadmap that outlines a step-by-step study plan for the student. Each step in the roadmap should include:
             - A unique ID for the step.
             - A step number in the format "Step 1," "Step 2," etc.
             - A detailed description for the step, providing specific guidance and tasks for the student.
@@ -55,11 +55,11 @@ export const createRoadMap = async (roadmapData) => {
                 ]
             }
 
-            Respond with only the JSON object.
+            Respond with only the JSON object and ensure it is well-formed, valid, and properly indented.
         `;
 
 
-        const { data } = await axios.post(process.env.FASTAPI_GENERATE_ROADMAP_BACKEND_URL, {
+        const { data } = await axios.post(`${process.env.WEBSITE_BASE_URL}/api/personalizedroadmap`, {
             textFromNextJSFrontend: generateStudentRoadmapPrompt
         });
 
@@ -72,7 +72,7 @@ export const createRoadMap = async (roadmapData) => {
                 studentExamName: roadmapData.studentExamName,                        
                 daysRemainingUntilExam: roadmapData.daysRemainingUntilExam,                 
                 syllabusTopics: roadmapData.syllabusTopics,                         
-                responseFromModel: data?.response_from_model?.content,
+                responseFromModel: data?.response_from_model?.kwargs?.content,
                 emailOfTheProfileWhoGeneratedRoadmap : user?.email
             }
         });

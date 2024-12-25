@@ -47,17 +47,18 @@ export const generateTopTenQuestionAnswer = async (qnadata) => {
 
             Respond with only the JSON object and ensure it is well-formed, valid, and properly indented.
         `;
+        
 
-
-        const { data } = await axios.post(process.env.FASTAPI_TOP_TEN_QUESTION_ANSWER_BACKEND_URL, {
+        const { data } = await axios.post(`${process.env.WEBSITE_BASE_URL}/api/toptenqna`, {
             textFromNextJSFrontend: topTenQuestionAnswerPrompt
         });
+
 
 
         const dataStored = await primsaClientConfig.topTenQuestionsAnswers.create({
             data: {
                 topic: qnadata?.topic,
-                responseFromModel: data?.response_from_model?.content,
+                responseFromModel: data?.response_from_model?.kwargs?.content,
                 emailOfTheProfileWhoGeneratedTopTenQnA: user?.email
             }
         });
