@@ -1,74 +1,78 @@
-# Scholar Sync
+### Scholar Sync 🚀📚  
 
-## Demo Video of the overall application
+### 🎥 **Demo Video of the Overall Application**  
 
-![Screenshot (785)](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)
+![Screenshot (785)](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)  
 
-https://www.youtube.com/watch?v=Lz3sGpZlb2g
+🔗 [Watch on YouTube](https://www.youtube.com/watch?v=Lz3sGpZlb2g)  
 
-## Introduction
+---
 
-Scholar Sync is a web app designed to help students and their parents manage and enhance the study experience. By offering tools for personalized study plans, question-and-answer generation, and organized YouTube study resources, Scholar Sync empowers both students and parents to take control of academic planning. Built with modern web technology, Scholar Sync makes it easy to organize, plan, and access essential learning materials all in one place.
+## ✨ **Introduction**  
+Scholar Sync is a web app designed to help students and their parents manage and enhance the study experience. By offering tools for personalized study plans, question-and-answer generation, and organized YouTube study resources, Scholar Sync empowers both students and parents to take control of academic planning. Built with modern web technology, Scholar Sync makes it easy to organize, plan, and access essential learning materials all in one place.  
 
-## Features of the Application
+---
 
-### User Features
+## 🌟 **Features of the Application**  
 
-1. **AI-Powered Roadmaps**  
-   Get personalized study plans based on your syllabus and learning style. This feature creates a structured path to help you stay on track, make steady progress, and reach your study goals.
+### 👩‍🎓 **User Features**  
 
-2. **Topic-Based QnA Generator**  
-   Easily create question-and-answer sets for any topic. Just enter the topic and a description, and Scholar Sync will provide 10 questions with answers customized to fit your needs.
+1. **AI-Powered Roadmaps** 🗺️  
+   Get personalized study plans based on your syllabus and learning style. This feature creates a structured path to help you stay on track, make steady progress, and reach your study goals.  
 
-3. **YouTube Study Guides**  
-   Save and organize useful YouTube videos for quick access. This feature lets you manage educational videos that help in your studies, so you have all your learning resources in one place.
+2. **Topic-Based QnA Generator** ❓💡  
+   Easily create question-and-answer sets for any topic. Just enter the topic and a description, and Scholar Sync will provide 10 questions with answers customized to fit your needs.  
 
-4. **Pagination**  
-   For ease of navigation, each section—roadmaps, essential YouTube links, and QnAs—is paginated, displaying 3 items per page. This keeps the interface clean and makes it easier for users to browse content step-by-step.
+3. **YouTube Study Guides** 🎥📖  
+   Save and organize useful YouTube videos for quick access. This feature lets you manage educational videos that help in your studies, so you have all your learning resources in one place.  
 
-5. **Content Deletion**  
-   Users can delete any specific roadmap, QnA, or YouTube resource they’ve created, giving them full control over their content.
+4. **Pagination** 📄➡️  
+   For ease of navigation, each section—roadmaps, essential YouTube links, and QnAs—is paginated, displaying 3 items per page. This keeps the interface clean and makes it easier for users to browse content step-by-step.  
 
-### Admin Features
+5. **Content Deletion** ❌🗂️  
+   Users can delete any specific roadmap, QnA, or YouTube resource they’ve created, giving them full control over their content.  
 
-1. **Admin Dashboard**  
-   Admins can view the total count of roadmaps, YouTube resources, and QnA sets created, along with the total number of users on the platform.
+### 👨‍💻 **Admin Features**  
 
-2. **User Management**  
-   Admins can see basic information about each user, including the user’s ID, full name, email, and the roadmaps, QnAs, and YouTube resources they have created. Admins can also see if a user is banned from the platform.
+1. **Admin Dashboard** 📊  
+   Admins can view the total count of roadmaps, YouTube resources, and QnA sets created, along with the total number of users on the platform.  
 
-3. **Ban/Unban Users**  
-   Admins can ban a user by providing a clear reason or unban them when necessary, allowing for effective management of platform usage.
+2. **User Management** 🛠️👥  
+   Admins can see basic information about each user, including the user’s ID, full name, email, and the roadmaps, QnAs, and YouTube resources they have created. Admins can also see if a user is banned from the platform.  
 
-4. **Content Management**  
-   Admins can delete any roadmap, QnA, or YouTube resource created by any user if needed, providing additional control over platform content.
+3. **Ban/Unban Users** 🚫✔️  
+   Admins can ban a user by providing a clear reason or unban them when necessary, allowing for effective management of platform usage.  
 
-5. **Pagination**  
-   The admin dashboard includes pagination in the roadmaps, essential YouTube links, and QnA sections, with 3 items displayed per page, making it easy to navigate and manage content effectively.
+4. **Content Management** ✂️📑  
+   Admins can delete any roadmap, QnA, or YouTube resource created by any user if needed, providing additional control over platform content.  
 
-## Deployment Links
+5. **Pagination** 📄➡️  
+   The admin dashboard includes pagination in the roadmaps, essential YouTube links, and QnA sections, with 3 items displayed per page, making it easy to navigate and manage content effectively.  
 
-**Live Preview:** https://scholarsync-som.vercel.app/
+---
 
-**Top 10 QnA Generator FastAPI:** https://som180-scholarsyncfastapigenerateqnabackend.hf.space
+## 🌐 **Deployment Links**  
 
-**Personalized Roadmap Generator FastAPI:** https://som180-scholarsyncfastapigenerateroadmapbackend.hf.space
+**Live Preview:** 🔗 [Scholar Sync](https://scholarsync-som.vercel.app/)  
 
-## Technologies Used
+---
 
-- **Next.js**: Framework for building fast, server-rendered web applications.
-- **ShadCN UI**: UI component library for creating clean and responsive interfaces.
-- **Tailwind CSS**: CSS framework for styling with responsive design.
-- **React Hook Form**: Library for efficient form management and validation.
-- **Zod**: Used for validating data inputs throughout the app.
-- **React Hot Toast**: Tool for creating friendly, customizable notifications.
-- **Prisma**: ORM used for database interaction with Neon PostgreSQL.
-- **Neon PostgreSQL**: Cloud-hosted database for reliable data storage.
-- **Kinde Authentication**: Provides secure user login and authentication.
-- **FastAPI**: Backend framework for handling app logic and API requests.
-- **GROQ API**: For efficient data querying and management.
-- **Google GEMMA2-9B-IT Model**: AI model accessed through GROQ API, powering personalized study features.
+## 🛠️ **Technologies Used**  
 
-## Disclaimer
+- **Next.js**: Framework for building fast, server-rendered web applications.  
+- **ShadCN UI**: UI component library for creating clean and responsive interfaces.  
+- **Tailwind CSS**: CSS framework for styling with responsive design.  
+- **React Hook Form**: Library for efficient form management and validation.  
+- **Zod**: Used for validating data inputs throughout the app.  
+- **React Hot Toast**: Tool for creating friendly, customizable notifications.  
+- **Prisma**: ORM used for database interaction with Neon PostgreSQL.  
+- **Neon PostgreSQL**: Cloud-hosted database for reliable data storage.  
+- **Kinde Authentication**: Provides secure user login and authentication.  
+- **GROQ API**: For efficient data querying and management.  
+- **Google GEMMA2-9B-IT Model**: AI model accessed through GROQ API, powering personalized study features.  
 
-The creator of this application is not responsible for any incorrect content generated by the GROQ API or Google’s GEMMA2-9B-IT model, as these operate beyond the creator's control.
+---
+
+## ⚠️ **Disclaimer**  
+The creator of this application is not responsible for any incorrect content generated by the GROQ API or Google’s GEMMA2-9B-IT model, as these operate beyond the creator's control.  
+
