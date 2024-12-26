@@ -4,10 +4,43 @@ import { useEffect, useState } from "react";
 import { BiLoaderCircle } from "react-icons/bi";
 import toast from "react-hot-toast";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
+import {
+    BarChart,
+    Bar,
+    ResponsiveContainer,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+} from "recharts";
+  
 
 import { fetchTotalNumberOfEssentialYtVideosTopTenQnARoadmaps } from "@/server-actions/adminServerActions";
 import CountCard from "@/app/_components/admin_component/CountCard";
 import { fetchParticularUserByEmailId } from "@/server-actions/userServerActions";
+
+
+
+const OurOwnToolTip = ({ active, payload, label }) => {
+
+    if (active && payload && label) {
+
+      return (
+        <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
+
+          <div className="text-medium text-lg">{label}</div>
+
+          <p className="text-sm text-violet-400">
+            Value: <span className="ml-2">{payload[0].value}</span>
+          </p>
+
+        </div>
+      );
+
+    }
+
+};
 
 
 const Page = () => {
@@ -16,7 +49,7 @@ const Page = () => {
     const { user } = useKindeAuth();
 
 
-    const [ totalCounts, setTotalCounts ] = useState({});
+    const [ totalCounts, setTotalCounts ] = useState([]);
 
     const [ loading, setLoading ] = useState(false);
 
@@ -67,7 +100,7 @@ const Page = () => {
 
             if (response?.success) {
 
-                setTotalCounts(response);
+                setTotalCounts(response?.data);
 
             }
 
@@ -128,14 +161,42 @@ const Page = () => {
 
                 ) : (
 
-                    <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
+                    <div className="flex flex-col items-center justify-center gap-10">
 
-                        <CountCard name='Roadmap' count={totalCounts?.totalNumberOfRoadmaps} />
-                        
-                        <CountCard name='QnA' count={totalCounts?.totalNumberOfTopTenQnA} />
-                        
-                        <CountCard name='Saved Yt Video' count={totalCounts?.totalNumberOfEssentialYtVideos} />
-                    
+                        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
+
+                            {totalCounts?.map((totalCount) => (
+
+                                <CountCard key={totalCount?.name} name={totalCount?.name} count={totalCount?.value} />
+
+                            ))}
+
+                        </div>
+
+                        <div className="w-full h-[500px] flex flex-col items-center justify-center">
+
+                            <ResponsiveContainer width={'100%'} height={'100%'}>
+
+                                <BarChart data={totalCounts} margin={{ right: 40 }}>
+
+                                    <XAxis dataKey="name" tick={{ fill: '#e4e4e7' }} />
+
+                                    <YAxis />
+
+                                    <CartesianGrid strokeDasharray="5 5" />
+
+                                    <Legend />
+
+                                    <Tooltip content={<OurOwnToolTip />} cursor={{ fill: 'transparent' }} />
+
+                                    <Bar dataKey="value" fill="#762EE3FF" maxBarSize={100} /> 
+
+                                </BarChart>
+
+                            </ResponsiveContainer>
+
+                        </div>
+
                     </div>
 
                 )

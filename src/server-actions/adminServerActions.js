@@ -13,11 +13,24 @@ export const fetchTotalNumberOfEssentialYtVideosTopTenQnARoadmaps = async () => 
 
         const totalNumberOfRoadmaps = await primsaClientConfig.roadMap.count();
 
+        const data = [
+            { 
+                name: 'YT Video', 
+                value: totalNumberOfEssentialYtVideos 
+            },
+            { 
+                name: 'QnA', 
+                value: totalNumberOfTopTenQnA 
+            },
+            { 
+                name: 'Roadmap', 
+                value: totalNumberOfRoadmaps 
+            },
+        ];
+
         return {
             success: true,
-            totalNumberOfEssentialYtVideos: totalNumberOfEssentialYtVideos,
-            totalNumberOfTopTenQnA: totalNumberOfTopTenQnA,
-            totalNumberOfRoadmaps: totalNumberOfRoadmaps
+            data: data
         }
         
     } catch (error) {
