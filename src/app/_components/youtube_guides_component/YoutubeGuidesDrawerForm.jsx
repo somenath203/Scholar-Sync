@@ -24,9 +24,9 @@ const YoutubeGuidesDrawerForm = ({ openCreateYoutubeLearningDrawer, setOpenCreat
 
 
   const zodFormValidationSchema = z.object({
-    youtubeVideoName: z.string().min(4, { message: 'video name is required' }),
+    youtubeVideoName: z.string().min(4, { message: 'video name should be of minimum of 4 characters' }),
     youtubeVideoLink: z.string().url({ message: 'valid URL is required' }),
-    youtubeVideoDescription: z.string().min(4, { message: 'description is required' })
+    youtubeVideoDescription: z.string().min(4, { message: 'video description should be of minimum of 4 characters' })
   });
   
 
