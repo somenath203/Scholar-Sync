@@ -174,7 +174,7 @@ const Page = () => {
             
             ) : error ? (
 
-                <p className="text-2xl text-red-400 font-bold">{error}</p> 
+                <p className="text-lg lg:text-2xl text-center lg:text-left text-red-400 font-bold">{error}</p> 
 
             ) : (
                 <>
