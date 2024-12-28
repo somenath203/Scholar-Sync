@@ -104,7 +104,7 @@ const Page = () => {
 
             } else {
 
-                setError("QnA with this ID does not exist.");
+                setError("An error occurred while fetching the QnA or the LLM model was unable to generate the QnAs correctly. Please go back, refresh the page, and try creating a new one.");
 
             }
 
@@ -174,7 +174,7 @@ const Page = () => {
             
             ) : error ? (
 
-                <p className="text-2xl text-red-500 font-bold">{error}</p> 
+                <p className="text-2xl text-red-400 font-bold">{error}</p> 
 
             ) : (
                 <>
