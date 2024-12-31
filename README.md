@@ -59,19 +59,19 @@ Scholar Sync is an innovative web application designed to simplify and enhance t
 
 ## 🛠️ **Technologies Used**  
 
-- **Next.js**: Framework for fast, server-rendered web applications.  
-- **ShadCN UI**: Responsive UI component library for elegant interfaces.  
-- **Tailwind CSS**: Utility-first CSS framework for styling with ease.  
-- **React Hook Form**: Efficient library for form handling and validation.  
-- **Zod**: Ensures robust data validation across the app.  
-- **React Hot Toast**: Delivers user-friendly and customizable notifications.  
-- **Prisma**: ORM for seamless database interaction with Neon PostgreSQL.  
-- **Neon PostgreSQL**: Reliable, cloud-hosted database for secure data storage.  
-- **Kinde Authentication**: Provides secure login and user authentication.  
-- **GROQ API**: Enables fast, efficient data querying and management.  
-- **Google GEMMA2-9B-IT Model**: AI model powering study planning and QnA generation.  
-- **LangChain**: Streamlines AI integrations for building smarter, context-aware features.  
-- **Recharts**: Used in the admin panel to display total numbers of YouTube guides, roadmaps, and QnAs in graphical format.  
+- **Next.js** 🚀: Framework for fast, server-rendered web applications.  
+- **ShadCN UI** 🎨: Responsive UI component library for elegant interfaces.  
+- **Tailwind CSS** 💨: Utility-first CSS framework for styling with ease.  
+- **React Hook Form** 📝: Efficient library for form handling and validation.  
+- **Zod** ✅: Ensures robust data validation across the app.  
+- **React Hot Toast** 🔔: Delivers user-friendly and customizable notifications.  
+- **Prisma** 🛠️: ORM for seamless database interaction with Neon PostgreSQL.  
+- **Neon PostgreSQL** 💾: Reliable, cloud-hosted database for secure data storage.  
+- **Kinde Authentication** 🔐: Provides secure login and user authentication.  
+- **GROQ API** ⚡: Enables fast, efficient data querying and management.  
+- **Google GEMMA2-9B-IT Model** 🤖: AI model powering study planning and QnA generation.  
+- **LangChain** 🧠: Streamlines AI integrations for building smarter, context-aware features.  
+- **Recharts** 📊: Used in the admin panel to display total numbers of YouTube guides, roadmaps, and QnAs in graphical format.  
 
 ---
 
