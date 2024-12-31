@@ -108,11 +108,13 @@ const Page = () => {
 
   }, [user]);
 
+
   useEffect(() => {
 
     getAllEssentialYtVideosOfTheCurrentlyLoggedInUser();
 
   }, []);
+  
 
   return (
     loadingCurrentlyLoggedInUserData ? <div className="text-white mt-44 w-11/12 mx-auto">

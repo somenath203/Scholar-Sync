@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 
 const QnACards = ({ allQnAData, loadingAllQnAData, getAllTopTenQnAOfTheCurrentlyLoggedInUser }) => {
 
+  console.log(loadingAllQnAData);
+  
 
   const [page, setPage] = useState(1);
 

@@ -8,7 +8,6 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 import { fetchParticularUserByEmailId, fetchParticularUserByItsId } from "@/server-actions/userServerActions";
 import { fetchAllEssentialytGuidesAnswersOfTheTargetUser } from "@/server-actions/adminServerActions";
-import NoItemsFound from "@/app/_components/all_purpose_component/NoItemsFound";
 import YoutubeVideoGuideCards from "@/app/_components/youtube_guides_component/YoutubeVideoGuideCards";
 
 
@@ -97,38 +96,42 @@ const Page = () => {
     };
 
 
-    const fetchEssentialYtVideosForTargetUser = async () => {
-
-        setLoadingAllYtVideosData(true);
+    const getAllEssentialYtVideosOfTheTargetUser = async () => {
 
         try {
+    
+          setLoadingAllYtVideosData(true);
+    
+          const allEssentialYtVideos = await fetchAllEssentialytGuidesAnswersOfTheTargetUser(targertUserDetails?.data?.email);
 
-            if (targertUserDetails) {
+    
+          if(allEssentialYtVideos?.success) {
 
-                const ytVideosData = await fetchAllEssentialytGuidesAnswersOfTheTargetUser(targertUserDetails?.data?.email);
-                
-                if (ytVideosData?.success) {
+            setAllYtVideoData(allEssentialYtVideos?.data?.reverse());
 
-                    setAllYtVideoData(ytVideosData?.data);  
-
-                }
-            }
-
+          }
+          
+          
         } catch (error) {
-
-            console.log(error);
-
-            toast.error(error?.message, {
-                duration: 8000,
-                style: { background: '#333', color: '#fff' },
-            });
-
+          
+          console.log(error);
+    
+          toast.error(error?.message, { 
+            duration: 8000,
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          });
+          
         } finally {
-
-            setLoadingAllYtVideosData(false);
-
+    
+          setLoadingAllYtVideosData(false);
+    
         }
-    };
+    
+    }
+
 
     useEffect(() => {
 
@@ -156,7 +159,7 @@ const Page = () => {
 
         if (targertUserDetails?.data?.email) {
 
-            fetchEssentialYtVideosForTargetUser();
+            getAllEssentialYtVideosOfTheTargetUser();
 
         }
 
@@ -178,34 +181,21 @@ const Page = () => {
                     </p>
 
                 ) : (
-                    loadingAllYtVideosData ? (
 
-                        <BiLoaderCircle className="text-5xl m-auto mt-8 text-white transition-all animate-spin duration-1000" />
-                    
-                    ) : (
-                        allYtVideoData?.length === 0 ? (
+                    <div className="flex flex-col gap-8">
 
-                            <NoItemsFound text='No Youtube Guides found' textSize='xl' />
+                        <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.email}'s Essential Yt Video Guides</p>
 
-                        ) : (
+                        <YoutubeVideoGuideCards 
+                            allVideosData={allYtVideoData} 
+                            loadingAllVideoData={loadingAllYtVideosData}
+                            getAllEssentialYtVideosOfTheCurrentlyLoggedInUser={getAllEssentialYtVideosOfTheTargetUser}
+                        />
 
-                            <div className="flex flex-col gap-8">
-
-                               <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s Essential Yt Video Guides</p>
-
-                                <YoutubeVideoGuideCards 
-                                    allVideosData={allYtVideoData} 
-                                    loadingAllVideoData={loadingAllYtVideosData}
-                                />
-
-                            </div>
-
-                        )
-
-                    )
+                    </div>
 
                 )
-
+                
             )}
 
         </div>

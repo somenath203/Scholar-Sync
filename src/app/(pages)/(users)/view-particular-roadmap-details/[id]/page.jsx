@@ -98,7 +98,7 @@ const Page = () => {
 
             } else {
 
-                setError("Roadmap with this ID does not exist.");
+                setError("An error occurred while fetching the roadmap or the LLM model was unable to generate the Roadmap correctly. Please go back, refresh the page, and try creating a new one.");
 
             }
 
@@ -168,7 +168,7 @@ const Page = () => {
             
             ) : error ? (
 
-                <p className="text-lg lg:text-2xl text-center lg:text-left text-red-400 font-bold">{error}</p> 
+                <p className="text-lg lg:text-2xl text-center text-red-400 font-bold">{error}</p> 
 
             ) : (
                 <>

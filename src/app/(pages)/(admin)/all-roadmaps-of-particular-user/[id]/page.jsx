@@ -8,8 +8,6 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 import { fetchParticularUserByEmailId, fetchParticularUserByItsId } from "@/server-actions/userServerActions";
 import { fetchAllRoadmapsOfTheTargetUser } from "@/server-actions/adminServerActions";
-import NoItemsFound from "@/app/_components/all_purpose_component/NoItemsFound";
-import QnACards from "@/app/_components/qna_components/QnACards";
 import RoadmapCards from "@/app/_components/roadmap_component/RoadmapCards";
 
 
@@ -27,7 +25,7 @@ const Page = () => {
 
     const [targertUserDetails, setTargetUserDetails] = useState({});
 
-    const [allRoadmaps, setAllRoadmaps] = useState([]);
+    const [allRoadmapData, setAllRoadmapData] = useState([]);
 
     const [loading, setLoading] = useState(true);
 
@@ -98,38 +96,42 @@ const Page = () => {
     };
 
 
-    const fetchRoadmapsForTargetUser = async () => {
-
-        setLoadingAllRoadmapData(true);
+    const getAllRoadmapsOfTheTargetUser = async () => {
 
         try {
+    
+          setLoadingAllRoadmapData(true);
+    
+          const allRoadmaps = await fetchAllRoadmapsOfTheTargetUser(targertUserDetails?.data?.email);
 
-            if (targertUserDetails) {
+    
+          if(allRoadmaps?.success) {
 
-                const roadmaps = await fetchAllRoadmapsOfTheTargetUser(targertUserDetails?.data?.email);
-                
-                if (roadmaps?.success) {
+            setAllRoadmapData(allRoadmaps?.data?.reverse());
 
-                    setAllRoadmaps(roadmaps?.data);  
-
-                }
-            }
-
+          }
+          
+          
         } catch (error) {
-
-            console.log(error);
-
-            toast.error(error?.message, {
-                duration: 8000,
-                style: { background: '#333', color: '#fff' },
-            });
-
+          
+          console.log(error);
+    
+          toast.error(error?.message, { 
+            duration: 8000,
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          });
+          
         } finally {
-
-            setLoadingAllRoadmapData(false);
-
+    
+          setLoadingAllRoadmapData(false);
+    
         }
-    };
+    
+    }
+
 
     useEffect(() => {
 
@@ -157,7 +159,7 @@ const Page = () => {
 
         if (targertUserDetails?.data?.email) {
 
-            fetchRoadmapsForTargetUser();
+            getAllRoadmapsOfTheTargetUser();
 
         }
 
@@ -179,34 +181,21 @@ const Page = () => {
                     </p>
 
                 ) : (
-                    loadingAllRoadmapData ? (
 
-                        <BiLoaderCircle className="text-5xl m-auto mt-8 text-white transition-all animate-spin duration-1000" />
-                    
-                    ) : (
-                        allRoadmaps?.length === 0 ? (
+                    <div className="flex flex-col gap-8">
 
-                            <NoItemsFound text='No Roadmaps found' textSize='xl' />
+                        <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.email}'s Roadmaps</p>
 
-                        ) : (
+                        <RoadmapCards
+                            allRoadmapData={allRoadmapData}
+                            loadingAllRoadmapData={loadingAllRoadmapData}
+                            getAllRoadmapOfTheCurrentlyLoggedInUser={getAllRoadmapsOfTheTargetUser}
+                        />
 
-                            <div className="flex flex-col gap-8">
-
-                               <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s Roadmaps</p>
-
-                                <RoadmapCards 
-                                    allRoadmapData={allRoadmaps} 
-                                    loadingAllRoadmapData={loadingAllRoadmapData}
-                                />
-
-                            </div>
-
-                        )
-
-                    )
+                    </div>
 
                 )
-
+                
             )}
 
         </div>

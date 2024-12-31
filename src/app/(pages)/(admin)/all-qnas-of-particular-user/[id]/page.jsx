@@ -8,7 +8,6 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 import { fetchParticularUserByEmailId, fetchParticularUserByItsId } from "@/server-actions/userServerActions";
 import { fetchAllTopTenQuestionsAnswersOfTheTargetUser } from "@/server-actions/adminServerActions";
-import NoItemsFound from "@/app/_components/all_purpose_component/NoItemsFound";
 import QnACards from "@/app/_components/qna_components/QnACards";
 
 
@@ -26,11 +25,11 @@ const Page = () => {
 
     const [targertUserDetails, setTargetUserDetails] = useState({});
 
-    const [allQnAs, setAllQnAs] = useState([]);
+    const [allQnAData, setAllQnAData] = useState([]);
 
     const [loading, setLoading] = useState(true);
 
-    const [loadingAllQnaData, setLoadingAllQnAData] = useState(false);
+    const [loadingAllQnAData, setLoadingAllQnAData] = useState(false);
 
 
     const getCurrentlyLoggedInUserDetails = async () => {
@@ -97,38 +96,42 @@ const Page = () => {
     };
 
 
-    const fetchQnAsForTargetUser = async () => {
-
-        setLoadingAllQnAData(true);
+    const getAllQnAsOfTheTargetUser = async () => {
 
         try {
+    
+          setLoadingAllQnAData(true);
+    
+          const allEssentialQnAs = await fetchAllTopTenQuestionsAnswersOfTheTargetUser(targertUserDetails?.data?.email);
 
-            if (targertUserDetails) {
+    
+          if(allEssentialQnAs?.success) {
 
-                const qnas = await fetchAllTopTenQuestionsAnswersOfTheTargetUser(targertUserDetails?.data?.email);
-                
-                if (qnas?.success) {
+            setAllQnAData(allEssentialQnAs?.data?.reverse());
 
-                    setAllQnAs(qnas?.data);  
-
-                }
-            }
-
+          }
+          
+          
         } catch (error) {
-
-            console.log(error);
-
-            toast.error(error?.message, {
-                duration: 8000,
-                style: { background: '#333', color: '#fff' },
-            });
-
+          
+          console.log(error);
+    
+          toast.error(error?.message, { 
+            duration: 8000,
+            style: {
+              background: '#333',
+              color: '#fff',
+            },
+          });
+          
         } finally {
-
-            setLoadingAllQnAData(false);
-
+    
+          setLoadingAllQnAData(false);
+    
         }
-    };
+    
+    }
+
 
     useEffect(() => {
 
@@ -156,7 +159,7 @@ const Page = () => {
 
         if (targertUserDetails?.data?.email) {
 
-            fetchQnAsForTargetUser();
+            getAllQnAsOfTheTargetUser();
 
         }
 
@@ -178,35 +181,21 @@ const Page = () => {
                     </p>
 
                 ) : (
-                    loadingAllQnaData ? (
 
-                        <BiLoaderCircle className="text-5xl m-auto mt-8 text-white transition-all animate-spin duration-1000" />
-                    
-                    ) : (
-                        allQnAs?.length === 0 ? (
+                    <div className="flex flex-col gap-8">
 
-                            <NoItemsFound text='No QnAs found' textSize='xl' />
+                        <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.email}'s QnA Data</p>
 
-                        ) : (
+                        <QnACards
+                            allQnAData={allQnAData}
+                            loadingAllQnAData={loadingAllQnAData}
+                            getAllTopTenQnAOfTheCurrentlyLoggedInUser={getAllQnAsOfTheTargetUser}
+                        />
 
-                            <div className="flex flex-col gap-8">
-
-                               <p className="text-xl lg:text-2xl text-center lg:text-left font-bold text-violet-400">{targertUserDetails?.data?.fullName}'s QnAs</p>
-
-                                <QnACards 
-                                    allQnAData={allQnAs} 
-                                    key={id} 
-                                    loadingAllQnAData={loadingAllQnaData}
-                                />
-
-                            </div>
-
-                        )
-
-                    )
+                    </div>
 
                 )
-
+                
             )}
 
         </div>

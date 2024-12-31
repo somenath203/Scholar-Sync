@@ -112,7 +112,7 @@ const Page = () => {
 
             console.log(error);
 
-            setError("An error occurred while fetching the QnA.");
+            setError("An error occurred while fetching the QnA or the LLM model was unable to generate the QnAs correctly. Please go back, refresh the page, and try creating a new one.");
 
         } finally {
 
@@ -174,7 +174,7 @@ const Page = () => {
             
             ) : error ? (
 
-                <p className="text-lg lg:text-2xl text-center lg:text-left text-red-400 font-bold">{error}</p> 
+                <p className="text-lg lg:text-2xl text-center text-red-400 font-bold">{error}</p> 
 
             ) : (
                 <>
