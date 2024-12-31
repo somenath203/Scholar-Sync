@@ -51,7 +51,7 @@ Scholar Sync is an innovative web application designed to simplify and enhance t
 
 ---
 
-## 🌐 **Deployment Links**  
+## 🌐 **Deployment Link**  
 
 **Live Preview:** 🔗 [Scholar Sync](https://scholarsync-som.vercel.app/)  
 
