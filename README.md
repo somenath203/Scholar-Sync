@@ -81,7 +81,7 @@ If while generating a roadmap or the top 10 QnAs, you encounter an error like:
 
 > An error occurred while fetching the roadmap or the LLM model was unable to generate the Roadmap correctly. Please go back, refresh the page, and try creating a new one.
 
-or,
+OR
 
 > An error occurred while fetching the QnA or the LLM model was unable to generate the Roadmap correctly. Please go back, refresh the page, and try creating a new one.  
 
