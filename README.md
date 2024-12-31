@@ -4,7 +4,7 @@
 
 ![Screenshot](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)  
 
-🔗 [Watch on YouTube](https://www.youtube.com/watch?v=Lz3sGpZlb2g)  
+🔗 [Watch on YouTube](https://www.youtube.com/watch?v=543kulhJG8w)  
 
 ---
 
