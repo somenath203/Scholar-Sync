@@ -1,6 +1,6 @@
 # Scholar Sync 🚀📚  
 
-## 🎥 **Demo Video of the Overall Application**  
+## 🎥 **Application Demo Video**  
 
 ![Screenshot](https://github.com/user-attachments/assets/a10cb021-71a4-4ae1-bdeb-bf7c40afde16)  
 
