@@ -68,8 +68,7 @@ Scholar Sync is an innovative web application designed to simplify and enhance t
 - **Prisma** 🛠️: ORM for seamless database interaction with Neon PostgreSQL.  
 - **Neon PostgreSQL** 💾: Reliable, cloud-hosted database for secure data storage.  
 - **Kinde Authentication** 🔐: Provides secure login and user authentication.  
-- **GROQ API** ⚡: Enables fast, efficient data querying and management.  
-- **Google GEMMA2-9B-IT Model** 🤖: AI model powering study planning and QnA generation.  
+- **GROQ API + Google GEMMA2-9B-IT Model** 🤖: AI model powering study planning and QnA generation.  
 - **LangChain** 🧠: Streamlines AI integrations for building smarter, context-aware features.  
 - **Recharts** 📊: Used in the admin panel to display total numbers of YouTube guides, roadmaps, and QnAs in graphical format.  
 
