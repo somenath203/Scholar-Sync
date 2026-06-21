@@ -13,7 +13,7 @@ if (!groqApiKey) {
 
 
 const llmModel = new ChatGroq({
-    model: "gemma2-9b-it", 
+    model: "llama-3.1-8b-instant", 
     apiKey: groqApiKey,
 });
 
